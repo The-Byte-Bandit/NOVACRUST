@@ -46,13 +46,13 @@ export function PaymentMethodSelector({ selected, onSelect }: PaymentMethodSelec
       <label className="text-xs text-muted-foreground font-medium">Pay from</label>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 bg-muted/30 rounded-xl border border-border/50 hover:bg-muted/50 transition-colors"
+        className="w-full text-sm truncate flex items-center justify-between p-4 bg-muted/30 rounded-xl border border-border/50 hover:bg-muted/50 transition-colors"
       >
-        <span className={selectedMethod ? 'text-foreground font-medium' : 'text-muted-foreground'}>
+        <span className={selectedMethod ? 'text-foreground font-medium text-sm truncate' : 'text-muted-foreground text-sm truncate'}>
           {selectedMethod ? (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 ">
               {selectedMethod.icon}
-              <span>{selectedMethod.name}</span>
+              <span className="text-sm  truncate">{selectedMethod.name}</span>
             </div>
           ) : (
             'Select an option'
@@ -76,7 +76,7 @@ export function PaymentMethodSelector({ selected, onSelect }: PaymentMethodSelec
   }}
   className="w-full flex items-center gap-3 p-4 hover:bg-muted transition-colors text-left"
 >
-  <div className="flex-shrink-0">{method.icon}</div>  {/* Icon doesn't shrink */}
+  <div className="flex-shrink-0">{method.icon}</div>  
   <span className="flex-1 text-sm font-medium text-foreground truncate">
     {method.name}
   </span>
