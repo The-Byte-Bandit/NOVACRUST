@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@layer base {
+  :root {
+    --background: 160 10% 97%;
+    --foreground: 168 60% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 168 60% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 168 60% 15%;
+
+    --primary: 168 60% 17%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 160 15% 94%;
+    --secondary-foreground: 168 60% 17%;
+
+    --muted: 160 10% 92%;
+    --muted-foreground: 168 20% 45%;
+
+    --accent: 168 50% 22%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 145 63% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 168 15% 88%;
+    --input: 168 15% 88%;
+    --ring: 168 60% 17%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --teal-dark: 168 60% 17%;
+    --teal-light: 168 40% 95%;
+    --gold: 43 96% 56%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(168 60% 17% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(168 60% 17% / 0.08), 0 2px 4px -2px hsl(168 60% 17% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(168 60% 17% / 0.08), 0 4px 6px -4px hsl(168 60% 17% / 0.05);
+    --shadow-card: 0 4px 24px -4px hsl(168 60% 17% / 0.12);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 168 50% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 168 45% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 168 45% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 160 50% 50%;
+    --primary-foreground: 168 60% 10%;
+
+    --secondary: 168 40% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 168 30% 18%;
+    --muted-foreground: 160 15% 60%;
+
+    --accent: 160 45% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 145 63% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 168 30% 20%;
+    --input: 168 30% 20%;
+    --ring: 160 50% 50%;
+
+    --teal-dark: 160 50% 50%;
+    --teal-light: 168 40% 15%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;  
+}
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-2xl shadow-[var(--shadow-card)] border border-border/50;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3.5 bg-muted/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply w-full py-4 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 active:scale-[0.98] transition-all duration-200;
+  }
+  
+  .tab-active {
+    @apply bg-primary text-primary-foreground;
+  }
+  
+  .tab-inactive {
+    @apply bg-transparent text-muted-foreground hover:text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  
+  .animate-check {
+    animation: checkmark 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes checkmark {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
